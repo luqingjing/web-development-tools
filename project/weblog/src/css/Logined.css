@@ -1,0 +1,18 @@
+#profile-picture {
+  width: 50%;
+  margin: 25px auto;
+}
+
+.logined-button {
+  width: 70%;
+  margin: 2.5% 15%;
+  font-size: 1vw;
+}
+
+#logined p {
+  font-size: 2vw;
+  font-weight: bold;
+  text-align: center;
+  overflow: hidden;
+  text-overflow:ellipsis;
+}

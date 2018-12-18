@@ -1,0 +1,32 @@
+.jumbotron {
+  background-image: url(../images/1.jpg);
+  background-size: cover;
+  background-position: 0 40%;
+  color: #eeeeee;
+  text-align: center;
+}
+
+#homepage {
+  padding: 0;
+}
+
+#bloglist {
+  padding-left: 0;
+}
+
+#bloglist h4 {
+  color: #1d65ff;
+}
+
+
+#user {
+  margin: 0;
+  background-color: #FFFFFF;
+  padding-bottom: 2%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+#user h3 {
+  text-align: center;
+}

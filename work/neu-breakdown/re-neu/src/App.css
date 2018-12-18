@@ -1,0 +1,272 @@
+/*navbar*/
+.container {
+  font-family: "Lato",sans-serif,"Material Icons";
+  letter-spacing: 1px;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #fffffe;
+  font-weight: 300;
+  text-align: left;
+  text-decoration: none;
+}
+
+.header {
+  width: 100vw;
+  background: #000000;
+  flex: none;
+  z-index: 1000;
+  position: fixed;
+}
+
+#navbar {
+  width: 94vw;
+  margin: 0 auto 0 auto;
+  height: 80px;
+  position: relative;
+  overflow:auto;
+}
+
+#logo {
+  width: auto;
+  float: left;
+  height: 80px;
+}
+
+#logo a img{
+  height: 80px;
+}
+
+#menu {
+  float: right;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+#menu ul.dropdowns {
+  float: left;
+  list-style: none;
+  height: 100%;
+  display: block;
+  width: auto;
+  position: relative;
+  margin: 0;
+}
+
+#menu ul.dropdowns li{
+  padding: 0 15px 0 15px;
+  line-height: 80px;
+  display: inline-block;
+}
+
+#menu ul.dropdowns li a{
+  margin: 0;
+  color: rgba(255,255,254,0.8);
+  text-decoration: none;
+}
+
+.search, .supernav{
+  float: left;
+  height: inherit;
+  position: relative;
+  border-left: solid #979797 1px;
+}
+
+.search a img, .supernav a img{
+  width: 80px;
+  height: 80px;
+}
+
+/*footer*/
+
+.footer {
+  flex: none;
+  background-color: #000;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+}
+
+.footer-content {
+  overflow: hidden;
+  width: 94vw;
+  margin: 25px auto;
+}
+
+.campuses ul {
+  float: left;
+  width: auto;
+  clear: both;
+  padding: 0 100px 10px 0;
+  margin: 0;
+  border-bottom: solid rgba(151,151,151,0.8) 1px;
+}
+
+.campuses ul li {
+  display: inline-block;
+  margin: 0 20px 0 0;
+}
+
+.campuses ul li a {
+  color: rgba(255,255,254,0.8);
+  text-decoration: none;
+}
+
+.campuses p {
+  float: left;
+  padding: 0;
+  font-size: 0.8rem;
+  line-height: 1.6rem;
+  color: rgba(151, 151, 151, 0.8);
+}
+
+.campuses p a{
+  color: rgba(151,151,151,0.8);
+  text-decoration: none;
+}
+
+.connect {
+  text-align: right;
+}
+
+.connect p a{
+  font-size: 0.8rem;
+  color: rgba(151,151,151,0.8);
+  text-decoration: none;
+}
+
+/*categories*/
+
+.categories {
+  padding: 30px 0 30px 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin: 80px auto 40px auto;
+  width: 94vw;
+}
+
+.categories div {
+  flex-grow: 1;
+  flex-basis: 25%;
+  margin: 0 15px 0 0;
+  padding: 0 15px 0 0;
+  border-right: solid rgba(151,151,151,0.6) 1px;
+}
+
+.categories div:last-child {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.category-image {
+  overflow: hidden;
+  display: block;
+  height: 250px;
+  position: relative;
+  border-bottom: none;
+}
+
+.category-image img{
+  width: 100%;
+  height: inherit;
+  object-fit: cover;
+}
+
+.category-image h2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #fffffe;
+  color: #000;
+  border-top: solid #c00 2px;
+  padding: 10px 12px 0 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.6rem;
+  margin-bottom: 0;
+}
+
+.category-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.category-list li{
+  border-bottom: solid rgba(151,151,151,0.6) 1px;
+  padding: 20px 0 20px 0;
+}
+
+.category-list li a{
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 2rem;
+  color: #000;
+  text-decoration: none;
+}
+
+/*hr*/
+
+hr {
+  margin: 0 auto 30px auto;
+  width: 94vw;
+  height: 5px;
+  background: #000;
+  border: none;
+  line-height: 0px;
+}
+
+/*infos*/
+
+.infos {
+  width: 94vw;
+  height: inherit;
+  margin: 0 auto 0 auto;
+}
+
+.infos ul {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  list-style: none;
+  padding: 0;
+}
+
+.info {
+  flex-grow: 1;
+  flex: 1;
+  min-height: 200px;
+  margin: 0 30px 30px 0;
+}
+
+.info:last-child {
+  margin: 0 0 60px 0;
+}
+
+.info a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.info-image {
+  height: 245px;
+  margin: 0 0 10px 0;
+  width: 100%;
+  object-fit: cover;
+}
+
+.info a h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+}
+
+.info a p {
+  font-weight: 300;
+  line-height: 1.8rem;
+  margin: 0;
+}

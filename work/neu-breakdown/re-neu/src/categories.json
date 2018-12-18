@@ -1,0 +1,34 @@
+[
+  {
+    "title": "UNDERGRADUATE",
+    "list": [
+      "Academic Programs",
+      "Admissions",
+      "Visit Campus"
+    ]
+  },
+  {
+    "title": "GRADUATE",
+    "list": [
+      "Graduate Programs",
+      "Admissions",
+      "PhD Education"
+    ]
+  },
+  {
+    "title": "RESEARCH",
+    "list": [
+      "Health",
+      "Security",
+      "Sustainability"
+    ]
+  },
+  {
+    "title": "LIFELONG LEARNING",
+    "list": [
+      "Professional Programs",
+      "Campus Network",
+      "Admissions"
+    ]
+  }
+]

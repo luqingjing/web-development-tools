@@ -1,0 +1,11 @@
+#login h3 {
+  font-size: 1.7vw;
+  font-weight: bold;
+  text-align: center;
+}
+
+.login-button {
+  width: 45%;
+  margin: 0 2.5%;
+  font-size: 1vw;
+}

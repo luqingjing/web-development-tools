@@ -1,0 +1,15 @@
+{
+  "name": "exam1",
+  "version": "1.0.0",
+  "description": "* Create a feature-branch named `exam1` * Modify the questions.md file to add answers to each question * Create the files needed to complete the rest of the assignment listed below, creating those files in this directory and subdirectories as needed. * Create a Pull Request (PR) to merge your exam1 branch in to your master branch, and assign that PR to me and the TA (WendyFengWM) * Create the pull request by the start of next class",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Luqing Jing",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
