@@ -8,7 +8,7 @@
 ## Team members
 Qian Huang 
 
-Luqing Jing
+Luqing Jing (me)
 ## Description
 
 We give our final project name as Weblog Because we are intended to develop a microBlog sharing platform. 
@@ -47,7 +47,7 @@ WeBlog is used to share blogs/information with others. Users can view all public
 HTTP Response:
 
 |Case|http response|
-|---|---|---|
+|---|---|
 |Successful| 200 OK|
 
 Example of response data if successful:
@@ -55,16 +55,16 @@ Example of response data if successful:
 ```json
 [
 	{
-	"title": "my first blog",
+	"title":"my first blog",
 	"author":"peter"
-	"content": "hahhahahahahahahahahah",
+	"content":"hahhahahahahahahahahah",
 	"id": 1,
 
 	}
 	{
-	"title": "my second blog",
+	"title":"my second blog",
 	"author":"peter"
-	"content": "blalalalalbalallalllalalalalalalalalalalallallallalalalalala",
+	"content":"blalalalalbalallalllalalalalalalalalalalallallallalalalalala",
 	"id": 2,
 	}
 ]
@@ -102,7 +102,7 @@ Parameters in URL:
 HTTP Response:
 
 |Case|http response|
-|---|---|---|
+|---|---|
 |Successful| 201 Created|
 |Already has this username|409 conflict|
 
@@ -143,7 +143,7 @@ Parameters in URL:
 HTTP Response:
 
 |Case|http response|
-|---|---|---|
+|---|---|
 |Successful| 200 OK|
 |No this user|404 Not Found|
 
@@ -181,7 +181,7 @@ Parameters in URL:
 HTTP Response:
 
 |Case|http response|
-|---|---|---|
+|---|---|
 |Successful| 200 OK|
 
 Example of response if successful:
@@ -220,7 +220,7 @@ Parameters in URL:
 HTTP Response:
 
 |Case|http response|
-|---|---|---|
+|---|---|
 |Successful| 200 OK|
 
 ```json
@@ -287,7 +287,7 @@ Parameters in URL:
 HTTP Response:
 
 |Case|http response|
-|---|---|---|
+|---|---|
 |Successful| 200 OK|
 
 Example of response if successful:
@@ -343,7 +343,7 @@ Parameters in URL:
 HTTP Response:
 
 |Case|http response|
-|---|---|---|
+|---|---|
 |Successful| 200 OK|
 
 Example of response if successful:
@@ -389,7 +389,7 @@ Parameters in URL:
 HTTP Response:
 
 |Case|http response|
-|---|---|---|
+|---|---|
 |Successful| 200 OK|
 
 ```json
@@ -454,7 +454,7 @@ Parameters in URL:
 HTTP Response:
 
 |Case|http response|
-|---|---|---|
+|---|---|
 |Successful| 200 OK|
 
 ```json
