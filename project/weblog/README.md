@@ -1,44 +1,483 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Weblog
+ 
+ ----------------------------------
+ 1. UI design
+ 2. data 
+ 3. RESTful API
 
-## Available Scripts
+## Team members
+Qian Huang 
 
-In the project directory, you can run:
+Luqing Jing
+## Description
 
-### `npm start`
+We give our final project name as Weblog Because we are intended to develop a microBlog sharing platform. 
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+WeBlog is used to share blogs/information with others. Users can view all public blogs listing in homepage no matther he/she is logged in or not. Users have 4 basic operation of their own blogs: view, add, edit and delete.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Use Cases
 
-### `npm test`
+1. when opening the weblog page, users can view all blogs listing in the homepage (Initialy, the list is empty)
+2. Users can sign up or log in to post their own blogs by clicking "Add New" button on the navBar or under user info
+3. After users loging in, they can view their own blogs by clicking "Personal Homepage" button or username on the navBar
+4. After entering personal homepage, users can edit or delete their own blogs
+5. When users click 'Sign Out' on the navbar, the current user will be signed out and the login/sign up page will be reloaded
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## RESTful API
 
-### `npm run build`
+### Overview
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+|Group|URL|
+|---|---|
+|[Home](#api-home)|/home|
+|[PersonalHome](#api-ph)|/:username
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+###  <a name="api-home" style="color: #000;"></a> Home
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+|endpoint|URL|Method|
+|---|---|---|
+|[List](#api-homelist)|/home|GET|
+|[Sign in](#api-signin)|/login|PUT|
+|[Sign up](#api-signup)|/signup|POST|
+|[Sign out](#api-signout)|/signout|PUT|
+|[Add blog](#api-add)|/:username/add|POST|
 
-### `npm run eject`
+####  <a name="api-homelist" style="color: #000;"></a> List
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+HTTP Response:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+|Case|http response|
+|---|---|---|
+|Successful| 200 OK|
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Example of response data if successful:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```json
+[
+	{
+	"title": "my first blog",
+	"author":"peter"
+	"content": "hahhahahahahahahahahah",
+	"id": 1,
 
-## Learn More
+	}
+	{
+	"title": "my second blog",
+	"author":"peter"
+	"content": "blalalalalbalallalllalalalalalalalalalalallallallalalalalala",
+	"id": 2,
+	}
+]
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The response is an array of blogs.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+More details on the field:
+
+|Field|Type|Explain|
+|---|---|---|
+|title|string|the title of each blog|
+|id|int|the unique id of each blog|
+|author|string|the author of each blog|
+|content|string|the content of each blog|
+
+#### <a name="api-signup" style="color: #000;"></a> Sign up
+
+Resquest example:
+
+```json
+	{
+	"username": "peter",
+	"password": ********	
+	}
+
+```
+Parameters in URL:
+
+|Parameter|Type|Explain|
+|----|----|----|
+|username|string|name of the user created|
+|password|string|password of the user created|
+
+HTTP Response:
+
+|Case|http response|
+|---|---|---|
+|Successful| 201 Created|
+|Already has this username|409 conflict|
+
+Example of response if successful:
+
+```json
+{
+	"logged":true
+}
+```
+
+More details on the field:
+
+|Field|Type|Explain|
+|---|---|---|
+|username|string|the name of user created|
+|logged|boolean|if the user created logged in|
+
+
+#### <a name="api-signin" style="color: #000;"></a> Sign in
+
+Resquest example:
+
+```json
+	{
+	"username": "peter",
+	"password": ********	
+	}
+
+```
+Parameters in URL:
+
+|Parameter|Type|Explain|
+|----|----|----|
+|username|string|name of the user created|
+|password|string|password of the user created|
+
+HTTP Response:
+
+|Case|http response|
+|---|---|---|
+|Successful| 200 OK|
+|No this user|404 Not Found|
+
+Example of response if successful:
+
+```json
+{
+	"logged": true
+}
+```
+
+More details on the field:
+
+|Field|Type|Explain|
+|---|---|---|
+|username|string|the name of user created|
+|logged|boolean|if the user logged in|
+
+#### <a name="api-signout" style="color: #000;"></a> Sign out
+
+Resquest example:
+
+```json
+	{
+	"username": "peter",
+	}
+
+```
+Parameters in URL:
+
+|Parameter|Type|Explain|
+|----|----|----|
+|username|string|name of the user created|
+
+HTTP Response:
+
+|Case|http response|
+|---|---|---|
+|Successful| 200 OK|
+
+Example of response if successful:
+
+```json
+{
+	"logged": false
+}
+```
+
+More details on the field:
+
+|Field|Type|Explain|
+|---|---|---|
+|username|string|the name of user created|
+|logged|boolean|if the user logged in|
+
+#### <a name="api-add" style="color: #000;"></a> Add new blog
+
+Resquest example:
+
+```json
+	{
+	"title":"first",
+	"author":"peter",
+	"content":"blalalalala,hhahahhaah,hello world"
+	}
+
+```
+Parameters in URL:
+
+|Parameter|Type|Explain|
+|----|----|----|
+|username|string|name of the user created|
+
+HTTP Response:
+
+|Case|http response|
+|---|---|---|
+|Successful| 200 OK|
+
+```json
+[
+	{
+	"title": "my first blog",
+	"author":"peter",
+	"content": "hahhahahahahahahahahah",
+	"id": 1,
+
+	}
+	{
+	"title": "my second blog",
+	"author":"peter",
+	"content": "blalalalalbalallalllalalalalalalalalalalallallallalalalalala",
+	"id": 2,
+
+	}
+	{
+	"title":"first",
+	"author":"jane",
+	"content":"blalalalala,hhahahhaah,hello world",
+	"id":1,
+	}
+]
+```
+
+The response is an array of blogs.
+
+More details on the field:
+
+|Field|Type|Explain|
+|---|---|---|
+|title|string|the title of each blog|
+|id|int|the unique id of each blog|
+|author|string|the author of each blog|
+|content|string|the content of each blog|
+
+###  <a name="api-ph" style="color: #000;"></a> PersonalHome
+
+|endpoint|URL|Method|
+|----|---|---|
+|[list](#api-phlist)|/:username|GET|
+|[get one blog](#api-get)|/:username/edit/:blogID|GET|
+|[edit one blog](#api-edit)|/:username/edit/:blogID|PUT|
+|[delete one blog](#api-delete)|/:username/delete/:blogID|DELETE|
+
+#### <a name="api-phlist" style="color: #000;"></a> List
+
+Resquest example:
+
+```json
+	{
+	"username": "peter",
+	}
+
+```
+Parameters in URL:
+
+|Parameter|Type|Explain|
+|----|----|----|
+|username|string|name of the user created|
+
+HTTP Response:
+
+|Case|http response|
+|---|---|---|
+|Successful| 200 OK|
+
+Example of response if successful:
+
+```json
+[
+	{
+	"title": "my first blog",
+	"author":"peter"
+	"content": "hahhahahahahahahahahah",
+	"id": 1,
+
+	}
+	{
+	"title": "my second blog",
+	"author":"peter"
+	"content": "blalalalalbalallalllalalalalalalalalalalallallallalalalalala",
+	"id": 2,
+
+	}
+]
+```
+
+The response is an array of blogs of that user
+
+More details on the field:
+
+|Field|Type|Explain|
+|---|---|---|
+|title|string|the title of each blog|
+|id|int|the unique id of each blog|
+|author|string|the author of each blog|
+|content|string|the content of each blog|
+
+#### <a name="api-get" style="color: #000;"></a> Get one blog
+
+Resquest example:
+
+```json
+	{
+	"username": "peter",
+	"blogID": 3
+	}
+
+```
+Parameters in URL:
+
+|Parameter|Type|Explain|
+|----|----|----|
+|username|string|name of the user created|
+|blogID|int|the id of the blog|
+
+HTTP Response:
+
+|Case|http response|
+|---|---|---|
+|Successful| 200 OK|
+
+Example of response if successful:
+
+```json
+	{
+	"title": "my first blog",
+	"author":"peter"
+	"content": "hahhahahahahahahahahah",
+	"id": 1,
+
+	}
+```
+More details on the field:
+
+|Field|Type|Explain|
+|---|---|---|
+|title|string|the title of each blog|
+|id|int|the unique id of each blog|
+|author|string|the author of each blog|
+|content|string|the content of each blog|
+
+#### <a name="api-edit" style="color: #000;"></a> Edit one blog
+
+Resquest example:
+
+```json
+	{
+	"title":"third",
+	"author":"peter",
+	"content":"blalalalala,hhahahhaah,hello world,good bye",
+	"id":5,
+
+	}
+```
+Parameters in URL:
+
+|Parameter|Type|Explain|
+|----|----|----|
+|username|string|name of the user created|
+|blogID|int|the id of the blog|
+
+HTTP Response:
+
+|Case|http response|
+|---|---|---|
+|Successful| 200 OK|
+
+```json
+[
+	{
+	"title": "my first blog",
+	"author":"peter",
+	"content": "hahhahahahahahahahahah",
+	"id": 1,
+
+	}
+	{
+	"title": "my second blog",
+	"author":"peter",
+	"content": "blalalalalbalallalllalalalalalalalalalalallallallalalalalala",
+	"id": 2,	
+	}
+	{
+	"title":"first",
+	"author":"jane",
+	"content":"blalalalala,hhahahhaah,hello world",
+	"id":3,
+
+	}
+	{
+	"username": "peter",
+	"title":"third",
+	"author":"peter",
+	"content":"blalalalala,hhahahhaah,hello world,good bye",
+	"id":5,
+	}
+]
+```
+The response is an array of blogs.
+
+More details on the field:
+
+|Field|Type|Explain|
+|---|---|---|
+|title|string|the title of each blog|
+|id|int|the unique id of each blog|
+|author|string|the author of each blog|
+|content|string|the content of each blog|
+
+#### <a name="api-delete" style="color: #000;"></a> Delete one blog
+
+Resquest example:
+
+```json
+	{
+	"username": "peter",
+	"id":5,
+	}
+```
+Parameters in URL:
+
+|Parameter|Type|Explain|
+|----|----|----|
+|username|string|name of the user created|
+|blogID|int|the id of the blog|
+
+HTTP Response:
+
+|Case|http response|
+|---|---|---|
+|Successful| 200 OK|
+
+```json
+{
+	logged:false
+}
+```
+The response is an array of blogs.
+
+More details on the field:
+
+|Field|Type|Explain|
+|---|---|---|
+|logged|boolean|if the user is loggedin|
+
+
+
+
+
+
+
+
+
+
+
+
