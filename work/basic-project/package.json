@@ -14,6 +14,6 @@
   },
   "homepage": "https://github.com/seainfo6250/setup-confirm#readme",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.17.3"
   }
 }
